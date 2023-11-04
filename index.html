@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Reservation Form</title>
+  <!--  <style>
+       
+        #form {
+            
+            border : 15px solid gray;
+            padding: 30px;
+            margin: 10px;
+            height: auto;
+            width: 400px;
+        }
+        label {
+            color: black;
+            border: 5px solid black;
+            width: 100%;
+
+        }
+        input {
+            width: 100%;
+            border: 5px solid black;
+        }
+        #cars {
+            border: 5px solid black;
+            margin: 10px;
+        }
+        button {
+            width: 80%;
+            padding: 10px;
+            border: 5px;
+            margin: 10px;
+        }
+
+    </style>
+-->
+<script>
+    function saveFormData() {
+        // Retrieve form data
+        var fname = document.getElementById('fname').value;
+        var lname = document.getElementById('lname').value;
+        var mobile = document.getElementById('mobile').value;
+        var email = document.getElementById('email').value;
+        var guests = document.getElementById('guests').value;
+        var roomType = document.getElementById('roomtype').value;
+
+        // Create an object to store the form data
+        var formData = {
+            firstName: fname,
+            lastName: lname,
+            mobile: mobile,
+            email: email,
+            guests: guests,
+            roomType: roomType
+        };
+
+        // Save the form data in localStorage
+        localStorage.setItem('formData', JSON.stringify(formData));
+    }
+
+    function loadFormData() {
+        // Retrieve the saved form data from localStorage
+        var savedData = localStorage.getItem('formData');
+        if (savedData) {
+            var formData = JSON.parse(savedData);
+            // Display the saved data
+            console.log(formData);
+            
+        }
+    }
+</script>
+<style>
+    body {
+        font-family: "Arial", sans-serif;
+        background-color: #f1f1f1;
+    }
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #007BFF;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    h2 {
+        text-align: center;
+        color: #007BFF;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+        font-weight: bold;
+        color: #333;
+    }
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+    button {
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    
+    </div>
+    <div id="form" name="form">
+        <form>
+            <h2> Hotel Reservation Form </h2>
+          
+                    <label for="fname">First Name:</label>
+                    <input type="text" id="fname" name="fname">
+                
+                    <label for="lname">Last Name:</label>
+                    <input type="text" id="lname" name="lname">
+                
+                    <label for="mobile">Mobile:</label>
+                    <input type="number" id="mobile" name="mobile">
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+
+
+                    <label for="guests">No of guests:</label>
+                    <input type="number" id="guests" name="guests">
+                
+                <!--<label for="male">Male</label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="female">Female</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="none">No specify</label>
+                    <input type="radio" id="none" name="gender" value="none">
+
+                -->
+                    <label for="roomtype">Room Type</label>
+                    <select id="roomtype">
+                    <option value="deluxe">Deluxe</option>
+                    <option value="suite">Suite</option>
+                    <option value="regular">Regular</option>
+                    
+                    </select>
+
+<!--                    <input type="file" id="cv" name="cv"> 
+-->                    
+                    <button id="submit" value="submit" onclick="saveFormData()">Submit</button>
+                    
+                        <button type="button" onclick="saveFormData()">Save Data</button>
+                        <button type="button" onclick="loadFormData()">Load Data</button>
+                    
+                
+        </form>
+        
+    </div>
+</body>
+</html>
